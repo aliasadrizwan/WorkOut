@@ -12,7 +12,7 @@
                 <input type="password" name="confirmPassword" id="confirmPassword" class="form-field" placeholder="Confirm Password" />
         </div>
         <div class="form-group">
-                <input type="submit" name="submit" id="submit" class="btn form-btn"/>
+                <input type="submit" name="submit" id="submit" value="Register" class="btn form-btn"/>
         </div>
     </form>
 </div>
