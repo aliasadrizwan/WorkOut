@@ -12,7 +12,7 @@
     <script src="../js/register.js"></script>
 </head>
 <body>
-
+<main>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -28,7 +28,7 @@
                 <li><a href="#about">ABOUT</a></li>
                 <li><a href="#services">WORKOUT</a></li>
                 <li><a href="profile">PROFILE</a></li>
-                <li><a href="#pricing">SETTING</a></li>
+                <li><a href="settings">SETTING</a></li>
                 <li><a href="#contact">CONTACT</a></li>
                 <li><a href="register">REGISTER</a></li>
                 <li><a href="login">LOGIN</a></li>
@@ -36,4 +36,3 @@
         </div>
     </div>
 </nav>
-
