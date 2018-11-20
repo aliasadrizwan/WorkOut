@@ -5,10 +5,11 @@ public class Lift {
     private String name;        // name of lift
     private int sets;           // number of sets to do
     private int reps;           // number of reps to do
-    private int setsCompleted;  // number of sets completed
-    private int repsCompleted;  // number of reps completed
     private int weight;         // weight to lift
-    private int progress;       // weight to add
+
+    public Lift() {
+
+    }
 
     public Lift(String name) {
         this.name = name;
@@ -38,22 +39,6 @@ public class Lift {
         this.reps = reps;
     }
 
-    public int getSetsCompleted() {
-        return setsCompleted;
-    }
-
-    public void setSetsCompleted(int setsCompleted) {
-        this.setsCompleted = setsCompleted;
-    }
-
-    public int getRepsCompleted() {
-        return repsCompleted;
-    }
-
-    public void setRepsCompleted(int repsCompleted) {
-        this.repsCompleted = repsCompleted;
-    }
-
     public int getWeight() {
         return weight;
     }
@@ -62,11 +47,4 @@ public class Lift {
         this.weight = weight;
     }
 
-    public int getProgress() {
-        return progress;
-    }
-
-    public void setProgress(int progress) {
-        this.progress = progress;
-    }
 }

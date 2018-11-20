@@ -7,13 +7,15 @@ public class User {
     private String userName;
     private String password;
     private Profile profile;
-    private List<Workout> workoutList;
+    private Setting setting;
+    private List<Workout> history;
 
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
         this.profile = new Profile();
-        workoutList = new ArrayList<>();
+        this.setting = new Setting();
+        history = new ArrayList<>();
     }
 
     public String getUserName() {
@@ -41,10 +43,18 @@ public class User {
     }
 
     public void addWorkout(Workout workout) {
-        workoutList.add(workout);
+        history.add(workout);
     }
 
-    public List<Workout> getWorkouts() {
-        return workoutList;
+    public List<Workout> getHistory() {
+        return history;
+    }
+
+    public Setting getSetting() {
+        return setting;
+    }
+
+    public void updateSetting(Setting setting) {
+        this.setting = setting;
     }
 }
