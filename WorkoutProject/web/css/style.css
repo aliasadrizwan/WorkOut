@@ -15,8 +15,16 @@ button > span{
     padding-right: 4px;
 }
 .content-container{
-    margin-top: 50px;
     min-height: 70%;
+    background-color: white;
+    border: 2px solid lightgray;
+    border-radius: 25px;
+    text-align: center;
+    width: 95%;
+    margin: 70px auto;
+    max-width: 100%;
+    padding: 50px 70px 70px 71px;
+    margin-bottom: 50px;
 }
 .form-contianer h1{
     margin-bottom: 30px;
@@ -91,6 +99,9 @@ button > span{
 }
 .width-100{
     width: 100px;
+}
+.width-100p{
+    width: 100%;
 }
 .navbar {
     margin-bottom: 0 !important;

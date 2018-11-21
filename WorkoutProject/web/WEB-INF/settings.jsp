@@ -1,5 +1,6 @@
 <%@include file="header.jsp" %>
-<div class="container content-container">
+<div class="content-container">
+    <form id="settings" method="post">
     <div class="row">
         <div class="row text-center">
             <h2>Workout Settings</h2>
@@ -13,22 +14,52 @@
 
         </div>
         <div class="row">
-            <input type="text" class="form-field  col-md-2 m-r" name="liftName" id="liftName" placeholder="Lift Name" />
-            <input type="text" class="form-field  col-md-2 m-r" name="sets" id="sets" placeholder="No of Sets" />
-            <input type="text" class="form-field  col-md-2 m-r" name="reps" id="reps" placeholder="Repetitions" />
-            <input type="text" class="form-field  col-md-2 m-r" name="weight" id="weight" placeholder="Weight" />
-            <input type="text" class="form-field  col-md-2 m-r" name="progress" id="progress" placeholder="Progress" />
-            <button class="btn form-btn col-md-1 m-r width-100" name="add" id="add"><span class="glyphicon glyphicon-plus"></span>Add</button>
-        </div>
-        <div class="col-sm-8">
+            <div class="col-md-2  m-r">
+                <input type="text" class="form-field width-100p" name="liftName" id="liftName" placeholder="Lift Name" />
+                <label class="error" for="liftName"></label>
+            </div>
+            <div class="col-md-2  m-r">
+            <input type="text" class="form-field width-100p" name="sets" id="sets" placeholder="No of Sets" />
+                <label class="error" for="sets"></label>
 
-            <h4>Lorem ipsum..</h4>
-            <p>Lorem ipsum..</p>
-            <button class="btn btn-default btn-lg">Get in Touch</button>
+            </div>
+            <div class="col-md-2  m-r">
+            <input type="text" class="form-field width-100p" name="reps" id="reps" placeholder="Repetitions" />
+                <label class="error" for="reps"></label>
+
+            </div>
+            <div class="col-md-2  m-r">
+            <input type="text" class="form-field width-100p" name="weight" id="weight" placeholder="Weight" />
+                <label class="error" for="weight"></label>
+            </div>
+            <div class="col-md-2  m-r">
+            <input type="text" class="form-field width-100p" name="progress" id="progress" placeholder="Progress" />
+                <label class="error" for="progress"></label>
+
+            </div>
+            <button type="submit" class="btn form-btn col-md-1 m-r width-100" name="add" id="add"><span class="glyphicon glyphicon-plus"></span>Add</button>
         </div>
-        <div class="col-sm-4">
-            <span class="glyphicon glyphicon-signal logo"></span>
-        </div>
+
     </div>
+    </form>
+
+    <table class="table table-hover" id="settingTable">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Lift Name</th>
+            <th scope="col">Sets</th>
+            <th scope="col">Repetitions</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Progress</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <form id="toSubmit" method="post">
+        <input type="submit" name="submit" id="submit" />
+    </form>
 </div>
 <%@include file="footer.jsp" %>
