@@ -8,6 +8,7 @@ public class User {
     private String password;
     private Profile profile;
     private Setting setting;
+    private Workout current;
     private List<Workout> history;
 
     public User(String userName, String password) {
@@ -44,6 +45,10 @@ public class User {
 
     public void addWorkout(Workout workout) {
         history.add(workout);
+    }
+
+    public void deleteWorkout(int index) {
+        history.remove(index);
     }
 
     public List<Workout> getHistory() {
