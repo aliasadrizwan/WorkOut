@@ -8,7 +8,7 @@ public class SettingParser {
 
     private static ObjectMapper jsonParser = new ObjectMapper();
 
-    public static Setting buildSetting(String json) throws IOException {
+    public static Setting buildSetting(String settings) throws IOException {
         return null;
     }
 

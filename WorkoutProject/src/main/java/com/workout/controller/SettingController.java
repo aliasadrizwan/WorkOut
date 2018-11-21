@@ -22,7 +22,7 @@ public class SettingController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Setting setting = SettingParser.buildSetting(req.getParameter("json"));
+        Setting setting = SettingParser.buildSetting(req.getParameter("settings"));
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
         user.updateSetting(setting);
