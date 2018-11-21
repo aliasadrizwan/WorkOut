@@ -108,7 +108,7 @@ $().ready(function() {
         var reps = $("#reps").val();
         var weight = $("#weight").val();
         var progress = $("#progress").val();
-        var markup = '<tr><th scope="row">'+(count++)+'</th><td>'+liftName+'</td><td>'+sets+'</td><td>'+reps+'</td><td>'+weight+'</td><td>'+progress+'</td></tr>';
+        var markup = '<tr><th scope="row">'+(count++)+'</th><td>'+liftName+'</td><td>'+weight+'</td><td>'+sets+'</td><td>'+reps+'</td><td>'+progress+'</td></tr>';
         $("table tbody").append(markup);
         resetFields();
         obj = {"liftName": liftName,"sets": sets,"reps": reps,"weight": weight,"progress": progress};
