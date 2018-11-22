@@ -1,6 +1,8 @@
 <%@include file="header.jsp" %>
 <div class="container form-contianer">
     <h1>Create Profile</h1>
+    <label class="error">${errorMessage}</label>
+    <label class="alert-success">${successMessage}</label>
     <form method="post" class="form-horizontal" id="registration">
         <div class="form-group">
             <input type="text" name="email" id="email" class="form-field" placeholder="Email" />

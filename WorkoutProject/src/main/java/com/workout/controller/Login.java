@@ -15,6 +15,9 @@ import java.io.IOException;
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //Remove session messages.
+        req.getSession().removeAttribute("errorMessage");
+        req.getSession().removeAttribute("successMessage");
         req.getRequestDispatcher("WEB-INF/login.jsp").forward(req, resp);
     }
 
