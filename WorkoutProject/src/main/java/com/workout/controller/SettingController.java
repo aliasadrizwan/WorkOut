@@ -1,5 +1,6 @@
 package com.workout.controller;
 
+import com.workout.com.workout.dao.DataFacade;
 import com.workout.model.LiftSetting;
 import com.workout.model.Setting;
 import com.workout.model.SettingParser;
@@ -23,16 +24,40 @@ public class SettingController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String liftName = req.getParameter("name");
-        int weight = Integer.parseInt(req.getParameter("weight"));
-        int sets = Integer.parseInt(req.getParameter("sets"));
-        int reps = Integer.parseInt(req.getParameter("reps"));
-        int progress = Integer.parseInt(req.getParameter("progress"));
+        boolean updateRest = false;
 
-        LiftSetting liftSetting = new LiftSetting(liftName,weight,sets,reps,progress);
+        LiftSetting liftSetting = null;
+        int rest=0;
+
+        if(req.getParameter("rest") != null) {
+            rest = Integer.parseInt(req.getParameter("rest"));
+            updateRest = true;
+        } else {
+            String liftName = req.getParameter("name");
+            int weight = Integer.parseInt(req.getParameter("weight"));
+            int sets = Integer.parseInt(req.getParameter("sets"));
+            int reps = Integer.parseInt(req.getParameter("reps"));
+            int progress = Integer.parseInt(req.getParameter("progress"));
+            liftSetting = new LiftSetting(liftName,weight,sets,reps,progress);
+        }
 
         HttpSession session = req.getSession();
-        User user = (User)session.getAttribute("user");
-        //user.getSetting().addLiftSetting(liftSetting);
+        User user = getUser((String)session.getAttribute("user"));
+        if (updateRest) {
+            user.getSetting().setRestTime(rest);
+        } else {
+            user.getSetting().addLiftSetting(liftSetting);
+        }
+
+    }
+
+
+    private User getUser(String username) {
+        for(User u : DataFacade.getUserList()) {
+            if (username.equals(u.getUserName())) {
+                return u;
+            }
+        }
+        return null;
     }
 }
