@@ -28,12 +28,12 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#about">ABOUT</a></li>
-                <li><a href="#services">WORKOUT</a></li>
-                <li><a href="profile">PROFILE</a></li>
-                <li><a href="settings">SETTING</a></li>
                 <li><a href="#contact">CONTACT</a></li>
                 <c:choose>
                     <c:when test="${user != null}">
+                        <li><a href="#services">WORKOUT</a></li>
+                        <li><a href="profile">PROFILE</a></li>
+                        <li><a href="settings">SETTING</a></li>
                         <li><a href="logout">LOGOUT</a></li>
                         <li>Welcome <span class="glyphicon glyphicon-user"></span> ${user}</li>
                     </c:when>

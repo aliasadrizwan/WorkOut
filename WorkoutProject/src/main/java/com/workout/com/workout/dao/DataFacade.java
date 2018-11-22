@@ -1,5 +1,6 @@
 package com.workout.com.workout.dao;
 
+import com.workout.model.Profile;
 import com.workout.model.User;
 
 import java.util.ArrayList;
@@ -25,4 +26,26 @@ public class DataFacade {
     public static List<User> getUserList(){
         return  userList;
     }
+
+/*    public static User getUserByName(String userName){
+        for(User u : userList){
+            if(u.getUserName().equals(userName)){
+                return u;
+            }
+        }
+        return null;
+    }*/
+
+    public static boolean addProfile(String userName, Profile profile){
+        if(userName != null) {
+            for (User u : userList) {
+                if (u.getUserName().equals(userName)) {
+                    u.setProfile(profile);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }
