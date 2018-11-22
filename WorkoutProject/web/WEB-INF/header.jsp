@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Home | Workout</title>
@@ -31,8 +32,17 @@
                 <li><a href="profile">PROFILE</a></li>
                 <li><a href="settings">SETTING</a></li>
                 <li><a href="#contact">CONTACT</a></li>
-                <li><a href="register">REGISTER</a></li>
-                <li><a href="login">LOGIN</a></li>
+                <c:choose>
+                    <c:when test="${user != null}">
+                        <li><a href="logout">LOGOUT</a></li>
+                        <li>Welcome <span class="glyphicon glyphicon-user"></span> ${user}</li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="register">REGISTER</a></li>
+                        <li><a href="login">LOGIN</a></li>
+                    </c:otherwise>
+                </c:choose>
+
             </ul>
         </div>
     </div>
