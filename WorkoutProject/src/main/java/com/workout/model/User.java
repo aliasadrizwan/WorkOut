@@ -9,7 +9,7 @@ public class User {
     private Profile profile;
     private Setting setting;
     private Workout current;
-    private List<Workout> history;
+    private List<WorkoutHistory> history;
 
     public User(String userName, String password) {
         this.userName = userName;
@@ -43,15 +43,15 @@ public class User {
         this.profile = profile;
     }
 
-    public void addWorkout(Workout workout) {
+    public void addWorkoutHistory(WorkoutHistory workout) {
         history.add(workout);
     }
 
-    public void deleteWorkout(int index) {
+    public void deleteWorkoutHistory(int index) {
         history.remove(index);
     }
 
-    public List<Workout> getHistory() {
+    public List<WorkoutHistory> getHistory() {
         return history;
     }
 

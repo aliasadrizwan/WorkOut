@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
         for(User user : DataFacade.getUserList()){
             if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
                 req.getSession().setAttribute("user", user);
-                resp.sendRedirect("index.jsp");
+                resp.sendRedirect("workout.jsp");
                 return;
             }
         }

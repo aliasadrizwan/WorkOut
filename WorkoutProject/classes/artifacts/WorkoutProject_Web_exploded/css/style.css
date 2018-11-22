@@ -97,6 +97,9 @@ button > span{
 .m-r{
     margin-right: 2px;
 }
+.m-t-20{
+    margin-top: 20px;
+}
 .width-100{
     width: 100px;
 }
@@ -138,3 +141,23 @@ button > span{
     }
 }
 
+.footer {
+    width: 100vw;
+    position: absolute;
+    bottom: 0px;
+}
+
+.workout:not(label) {
+    position: absolute;
+    padding-top: 10vh;
+}
+
+#lift {
+    padding: 1vh;
+}
+.workout-button{
+    display: inline-block;
+}
+.workout-button > .btn{
+    width: 70px;
+}

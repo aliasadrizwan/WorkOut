@@ -4,10 +4,10 @@
     <label class="error">${errorMessage}</label>
     <form method="post" class="form-horizontal" id="login">
         <div class="form-group">
-            <input type="text" name="userName" id="userName" class="form-field" placeholder="User Name" />
+            <input type="text" name="userName" id="userName" class="form-field" placeholder="User Name" value="test" />
         </div>
         <div class=" form-group">
-            <input type="password" name="password" id="password" class="form-field" placeholder="Password" />
+            <input type="password" name="password" id="password" class="form-field" placeholder="Password" value="test" />
         </div>
         <div class="form-group">
             <input type="submit" name="submit" id="submit" value="Login" class="btn form-btn"/>
