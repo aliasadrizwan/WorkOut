@@ -2,7 +2,7 @@
 <div class="container form-contianer">
     <h1>Login</h1>
     <label class="error">${errorMessage}</label>
-    <form method="post" class="form-horizontal" id="registration">
+    <form method="post" class="form-horizontal" id="login">
         <div class="form-group">
             <input type="text" name="userName" id="userName" class="form-field" placeholder="User Name" />
         </div>

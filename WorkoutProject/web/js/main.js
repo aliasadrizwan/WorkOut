@@ -1,6 +1,6 @@
 $().ready(function() {
 
-    // workout and registration validation
+    // Setting validation
     $('#settings').validate({
         rules: {
             email:{
@@ -77,8 +77,6 @@ $().ready(function() {
         }
     });
 
-
-
     // Setting submission validation
     $("#toSubmit").validate({
         rules: {
@@ -94,7 +92,6 @@ $().ready(function() {
             },
         }
     });
-
 
     // register validation
     $("#registration").validate({
@@ -130,24 +127,66 @@ $().ready(function() {
         }
     });
 
-    var count = 1;
-    function addToTable(){
-        var liftName = $("#liftName").val();
-        var sets = $("#sets").val();
-        var reps = $("#reps").val();
-        var weight = $("#weight").val();
-        var progress = $("#progress").val();
-        var markup = '<tr><th scope="row">'+(count++)+'</th><td>'+liftName+'</td><td>'+weight+'</td><td>'+sets+'</td><td>'+reps+'</td><td>'+progress+'</td></tr>';
-        $("table tbody").append(markup);
-        resetFields();
-    }
+    // login validation
+    $("#login").validate({
+        rules: {
+            userName:{
+                required: true,
+            },
+            password:{
+                required: true,
+            },
+        },
+        messages: {
+            userName: {
+                required: "Please enter user name.",
+            },
+            password: {
+                required: "Please enter passowrd.",
+            },
+        }
+    });
 
-    function resetFields() {
-       $("#liftName").val('');
-       $("#sets").val('');
-       $("#reps").val('');
-       $("#weight").val('');
-       $("#progress").val('');
-        $("#liftName").focus();
-    }
+    var workoutStats = {};
+
+    // button click
+    $(".btn").click(function() {
+        var button = $(this);
+        var liftName = button.parent().children("label").children(".lift-name").text();
+
+        if(button.hasClass("btn-danger")) {
+            button.removeClass("btn-danger").addClass("btn-success");
+            workoutStats[liftName] = true;
+        }
+        else if(button.hasClass("btn-success")) {
+            button.removeClass("btn-success").addClass("btn-danger");
+            workoutStats[liftName] = false;
+        } else {
+            // set color
+            button.removeClass("btn-secondary").addClass("btn-success");
+            workoutStats[liftName] = true;
+        }
+
+    });
+
+    // workout submit form
+    $("#workout").submit(function(e) {
+
+        for(var i = 0; i < $(".lift-name").length; ++i) {
+            var name = $("#" + i + " .lift-name").text();
+            if($("#" + i + " .btn-secondary,.btn-danger").length) {
+                workoutStats[name] = false;
+            } else {
+                workoutStats[name] = true;
+            }
+        }
+
+        $.post("/workout",workoutStats)
+            .done()
+            .fail();
+    })
+
+
 });
+
+

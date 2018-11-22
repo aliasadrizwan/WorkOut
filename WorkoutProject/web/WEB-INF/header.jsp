@@ -11,7 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/custom.js"></script>
 </head>
 <body>
 <main>
@@ -27,16 +26,21 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="about">ABOUT</a></li>
+                    <li><a href="contact">CONTACT</a></li>
                     <c:choose>
-
+                        <c:when test="${user != null}">
+                            <li><a href="workout">WORKOUT</a></li>
+                            <li><a href="profile">PROFILE</a></li>
+                            <li><a href="settings">SETTING</a></li>
+                            <li><a href="logout">LOGOUT</a></li>
+                            <li>Welcome <span class="glyphicon glyphicon-user"></span> ${user.userName}</li>
+                        </c:when>
                         <c:otherwise>
                             <li><a href="register">REGISTER</a></li>
                             <li><a href="login">LOGIN</a></li>
                         </c:otherwise>
                     </c:choose>
-
                 </ul>
             </div>
         </div>

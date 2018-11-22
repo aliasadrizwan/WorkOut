@@ -6,7 +6,7 @@ public class LiftSetting {
 
     public LiftSetting(String name, int weight, int set, int rep, int progress) {
         lift = new Lift();
-        update(name,set,rep,weight,progress);
+        update(name,weight,set,rep,progress);
     }
 
     public String getName() {

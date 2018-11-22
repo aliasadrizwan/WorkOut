@@ -17,7 +17,7 @@ public class WorkoutController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        req.getRequestDispatcher("workout.jsp").forward(req,resp);
     }
 
     @Override

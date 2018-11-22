@@ -138,3 +138,18 @@ button > span{
     }
 }
 
+.footer {
+    width: 100vw;
+    position: absolute;
+    bottom: 0px;
+}
+
+.workout:not(label) {
+    position: absolute;
+    padding-top: 10vh;
+}
+
+#lift {
+    padding: 1vh;
+}
+

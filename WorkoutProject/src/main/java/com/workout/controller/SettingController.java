@@ -31,6 +31,7 @@ public class SettingController extends HttpServlet {
         if(req.getParameter("rest") != null) {
             int rest = Integer.parseInt(req.getParameter("rest"));
             user.getSetting().setRestTime(rest);
+            resp.sendRedirect("/home");
         } else {
             String liftName = req.getParameter("name");
             int weight = Integer.parseInt(req.getParameter("weight"));
