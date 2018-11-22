@@ -1,4 +1,6 @@
+<%@ page import="com.workout.model.User" %>
 <%@include file="header.jsp" %>
+
 <div class="content-container">
     <div class="row text-center">
         <h2>Workout Settings</h2>
@@ -57,6 +59,12 @@
             <th scope="col">Repetitions</th>
             <th scope="col">Progress</th>
         </tr>
+        <c:forEach var="liftSetting" items="${user.setting.liftSetting}" varStatus="loop">
+            <tr>
+                <th scope="row">${loop.count}</th>
+                <td>${liftSetting.name}</td>
+            </tr>
+        </c:forEach>
         </thead>
         <tbody>
 
@@ -65,7 +73,7 @@
     <form id="toSubmit">
         <div>
             <label>Rest Time
-                <input type="text" class="form-field width-100p" name="restTime" id="rest" placeholder="Seconds" />
+                <input type="text" class="form-field width-100p" name="rest" id="rest" placeholder="Seconds" />
             </label>
         </div>
         <button type="submit" class="btn form-btn width-100" name="submit" id="submit"><span class="glyphicon glyphicon-save"></span>Save</button>

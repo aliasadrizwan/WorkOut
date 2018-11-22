@@ -3,19 +3,6 @@ $().ready(function() {
     // workout and registration validation
     $('#settings').validate({
         rules: {
-            userName:{
-                required: true,
-                minlength: 2
-            },
-            password:{
-                required: true,
-                minlength: 5
-            },
-            confirmPassword:{
-                required: true,
-                minlength: 5,
-                equalTo: "#password"
-            },
             email:{
                 required: true,
                 email: true
@@ -45,19 +32,6 @@ $().ready(function() {
             }
         },
         messages:{
-            userName: {
-                required: "Please enter user name.",
-                minlength: "User name must be at least 2 character long."
-            },
-            password: {
-                required: "Please provide passowrd.",
-                minlength: "Password must be at least 5 character long."
-            },
-            confirmPassword: {
-                required: "Please provide Confirm passowrd.",
-                minlength: "Confirm password must be at least 5 character long.",
-                equalTo: "Please enter same password as above."
-            },
             email:{
                 required: "Please enter email.",
                 email: "Please enter valid email."
@@ -98,35 +72,61 @@ $().ready(function() {
                 })
                 .done(addToTable)
                 .fail(function () {
-                    alert("ERROR: Error encountered while adding lift");
+                    alert("fail addLift");
                 });
         }
     });
 
+
+
     // Setting submission validation
     $("#toSubmit").validate({
         rules: {
-
+            rest:{
+                required: true,
+                number: true
+            },
         },
         messages: {
-
-        },
-        submitHandler: function(e) {
-            $.post("/settings", {"rest" : $("#rest").val()})
-                .done(function(){alert("done")})
-                .fail(function(){alert("fail")});
+            rest:{
+                required: "Please enter rest time",
+                number: "Please enter a number"
+            },
         }
     });
 
+
+    // register validation
     $("#registration").validate({
         rules: {
-
+            userName:{
+                required: true,
+                minlength: 2
+            },
+            password:{
+                required: true,
+                minlength: 5
+            },
+            confirmPassword:{
+                required: true,
+                minlength: 5,
+                equalTo: "#password"
+            }
         },
         messages: {
-
-        },
-        submitHandler: function (e) {
-
+            userName: {
+                required: "Please enter user name.",
+                minlength: "User name must be at least 2 character long."
+            },
+            password: {
+                required: "Please provide passowrd.",
+                minlength: "Password must be at least 5 character long."
+            },
+            confirmPassword: {
+                required: "Please provide Confirm passowrd.",
+                minlength: "Confirm password must be at least 5 character long.",
+                equalTo: "Please enter same password as above."
+            }
         }
     });
 
@@ -141,6 +141,7 @@ $().ready(function() {
         $("table tbody").append(markup);
         resetFields();
     }
+
     function resetFields() {
        $("#liftName").val('');
        $("#sets").val('');

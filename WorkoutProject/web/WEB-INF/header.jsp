@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
-    <script src="../js/register.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/custom.js"></script>
 </head>
 <body>
@@ -30,13 +30,7 @@
                     <li><a href="#about">ABOUT</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                     <c:choose>
-                        <c:when test="${user != null}">
-                            <li><a href="#services">WORKOUT</a></li>
-                            <li><a href="profile">PROFILE</a></li>
-                            <li><a href="settings">SETTING</a></li>
-                            <li><a href="logout">LOGOUT</a></li>
-                            <li>Welcome <span class="glyphicon glyphicon-user"></span> ${user}</li>
-                        </c:when>
+
                         <c:otherwise>
                             <li><a href="register">REGISTER</a></li>
                             <li><a href="login">LOGIN</a></li>
