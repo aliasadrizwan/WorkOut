@@ -1,10 +1,11 @@
 <%@include file="header.jsp" %>
 <div class="content-container">
-    <form id="settings" method="post">
+    <div class="row text-center">
+        <h2>Workout Settings</h2>
+    </div>
+
+    <form id="settings">
     <div class="row">
-        <div class="row text-center">
-            <h2>Workout Settings</h2>
-        </div>
         <div class="row">
             <label class="control-label col-md-2">Lift Name</label>
             <label class="control-label col-md-2">Weight</label>
@@ -61,7 +62,12 @@
 
         </tbody>
     </table>
-    <form id="toSubmit" method="post">
+    <form id="toSubmit">
+        <div>
+            <label>Rest Time
+                <input type="text" class="form-field width-100p" name="restTime" id="rest" placeholder="Seconds" />
+            </label>
+        </div>
         <button type="submit" class="btn form-btn width-100" name="submit" id="submit"><span class="glyphicon glyphicon-save"></span>Save</button>
     </form>
 </div>

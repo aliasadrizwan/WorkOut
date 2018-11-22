@@ -1,5 +1,6 @@
 package com.workout.controller;
 
+import com.workout.model.LiftSetting;
 import com.workout.model.Setting;
 import com.workout.model.SettingParser;
 import com.workout.model.User;
@@ -22,10 +23,16 @@ public class SettingController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Setting setting = SettingParser.buildSetting(req.getParameter("settings"));
+        String liftName = req.getParameter("name");
+        int weight = Integer.parseInt(req.getParameter("weight"));
+        int sets = Integer.parseInt(req.getParameter("sets"));
+        int reps = Integer.parseInt(req.getParameter("reps"));
+        int progress = Integer.parseInt(req.getParameter("progress"));
+
+        LiftSetting liftSetting = new LiftSetting(liftName,weight,sets,reps,progress);
+
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
-        user.updateSetting(setting);
-        resp.sendRedirect("/home");
+        //user.getSetting().addLiftSetting(liftSetting);
     }
 }

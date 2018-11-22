@@ -41,7 +41,6 @@ $().ready(function() {
                 required: true,
                 number: true
             }
-
         },
         messages:{
             userName: {
@@ -88,19 +87,65 @@ $().ready(function() {
         }
     });
 
-    //make ajax call and add into table.
-
-
-    $("#settings").on('submit', function(e) {
-        var isvalid = $("#settings").valid();
-        if (isvalid) {
-            e.preventDefault();
-            addToTable();
+    $("#toSubmit").validate({
+        rules: {
+            rest:{
+                required: true,
+                number: true
+            }
+        },
+        messages:{
+            rest:{
+                required: "Please enter rest time.",
+                number: "Please enter a number."
+            }
         }
     });
 
+    //make ajax call and add into table.
+
+    $("#settings").on('submit', function(e) {
+        e.preventDefault();
+        $.post("/settings",
+            {
+                "name": $("#liftName").val(),
+                "weight": $("#weight").val(),
+                "sets": $("#sets").val(),
+                "reps": $("#reps").val(),
+                "progress": $("#progress").val()
+            })
+            .done(addToTable)
+            .fail(function () {
+                alert("ERROR: Error encountered while adding lift");
+            });
+
+    });
+
+    $("#toSubmit").on('submit', function(e) {
+        e.preventDefault();
+        $.post("/settings", {"rest" : $("#rest").val()})
+            .done(function(){alert("done")})
+            .fail(function(){alert("fail")});
+    });
+
+
+
+
+
+
+
+    // --------------------------------
+
+    // $("#settings").on('submit', function(e) {
+    //     var isvalid = $("#settings").valid();
+    //     if (isvalid) {
+    //         e.preventDefault();
+    //         addToTable();
+    //     }
+    // });
+
     var count = 1;
-    var settingList = [];
+    // var settingList = [];
     function addToTable(){
         var obj;
         var liftName = $("#liftName").val();
@@ -111,8 +156,8 @@ $().ready(function() {
         var markup = '<tr><th scope="row">'+(count++)+'</th><td>'+liftName+'</td><td>'+weight+'</td><td>'+sets+'</td><td>'+reps+'</td><td>'+progress+'</td></tr>';
         $("table tbody").append(markup);
         resetFields();
-        obj = {"liftName": liftName,"sets": sets,"reps": reps,"weight": weight,"progress": progress};
-        settingList.push(obj);
+        // obj = {"liftName": liftName,"sets": sets,"reps": reps,"weight": weight,"progress": progress};
+        // settingList.push(obj);
     }
     function resetFields() {
        $("#liftName").val('');
@@ -123,24 +168,24 @@ $().ready(function() {
         $("#liftName").focus();
     }
 
-    $("#toSubmit").on('submit', function(e) {
-        var jsonObj = JSON.stringify(settingList);
-        $.post( "/settings",{settings: jsonObj})
-            .done(function() {
-                alert( "second success" );
-            })
-            .fail(function() {
-                alert( "error" );
-            })
-            .always(function() {
-                alert( "finished" );
-            });
-        /*for (var i = 0; i < settingList.length; i++) {
-            alert(settingList[i].liftName);
-            //Do something
-        }*/
-        //alert(a);
-        //e.preventDefault();
-    });
+    // $("#toSubmit").on('submit', function(e) {
+    //     var jsonObj = JSON.stringify(settingList);
+    //     $.post( "/settings",{settings: jsonObj})
+    //         .done(function() {
+    //             alert( "second success" );
+    //         })
+    //         .fail(function() {
+    //             alert( "error" );
+    //         })
+    //         .always(function() {
+    //             alert( "finished" );
+    //         });
+    //     /*for (var i = 0; i < settingList.length; i++) {
+    //         alert(settingList[i].liftName);
+    //         //Do something
+    //     }*/
+    //     //alert(a);
+    //     //e.preventDefault();
+    // });
 
 })

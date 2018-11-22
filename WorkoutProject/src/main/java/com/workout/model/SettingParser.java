@@ -1,14 +1,11 @@
 package com.workout.model;
-
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 public class SettingParser {
 
-    private static ObjectMapper jsonParser = new ObjectMapper();
 
     public static Setting buildSetting(String settings) throws IOException {
+        System.out.println(settings);
         return null;
     }
 
@@ -17,9 +14,9 @@ public class SettingParser {
     public class LiftProperties {
 
         private String liftName;
-        private int weight;
         private int sets;
         private int reps;
+        private int weight;
         private int progress;
 
         LiftProperties() {
@@ -64,6 +61,14 @@ public class SettingParser {
 
         public void setProgress(int progress) {
             this.progress = progress;
+        }
+
+        public String toString() {
+            return "name : " + liftName + "\n" +
+                    "weight : " + weight + "\n" +
+                    "sets : " + sets + "\n" +
+                    "reps : " + reps + "\n" +
+                    "progress : " + progress;
         }
     }
 }

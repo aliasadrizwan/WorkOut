@@ -4,7 +4,7 @@ public class LiftSetting {
     private Lift lift;
     private int progress;
 
-    public LiftSetting(String name, int set, int rep, int weight, int progress) {
+    public LiftSetting(String name, int weight, int set, int rep, int progress) {
         lift = new Lift();
         update(name,set,rep,weight,progress);
     }
@@ -25,7 +25,7 @@ public class LiftSetting {
         return progress;
     }
 
-    public void update(String name, int set, int rep, int weight, int progress) {
+    public void update(String name, int weight, int set, int rep, int progress) {
         lift.setName(name);
         lift.setSets(set);
         lift.setReps(rep);
