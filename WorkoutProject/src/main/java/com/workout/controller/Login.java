@@ -26,24 +26,20 @@ public class Login extends HttpServlet {
         //Retrieve user name and password from request.
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
+
         Boolean flag = false;
         //TODO: validation for userName and password
 
         for(User user : DataFacade.getUserList()){
             if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
-                flag = true;
-                break;
+                req.getSession().setAttribute("user", user);
+                resp.sendRedirect("index.jsp");
+                return;
             }
         }
-        if(flag == true) {
-            //Save user into session
-            req.getSession().setAttribute("user", userName);
-            resp.sendRedirect("index.jsp");
-        }
-        else{
-            req.getSession().setAttribute("errorMessage","Incorrect user name or password.");
-            req.getRequestDispatcher("WEB-INF/login.jsp").forward(req, resp);
-        }
+
+        req.getSession().setAttribute("errorMessage","Incorrect user name or password.");
+        req.getRequestDispatcher("WEB-INF/login.jsp").forward(req, resp);
 
     }
 }

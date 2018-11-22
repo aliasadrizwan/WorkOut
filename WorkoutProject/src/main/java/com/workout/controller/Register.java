@@ -27,7 +27,7 @@ public class Register extends HttpServlet {
         //Add user to DAO
         DataFacade.addUser(user);
         //Save user into session
-        req.getSession().setAttribute("user",userName);
+        req.getSession().setAttribute("user",user);
         //Redirect user to home page.
         resp.sendRedirect("index.jsp");
     }

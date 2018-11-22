@@ -31,15 +31,16 @@ public class ProfileController extends HttpServlet {
         //TODO: Validate profile here
         //create profile object
         Profile profile = new Profile(email, weight, height);
-        //Save profile against logged in user.
-        boolean result =(req.getSession().getAttribute("user")!=null)?DataFacade.addProfile(req.getSession().getAttribute("user").toString(),profile):false;
 
-        if(result == false){
-            req.getSession().setAttribute("errorMessage","Unable to add profile.");
-            req.getRequestDispatcher("WEB-INF/profile.jsp").forward(req, resp);
-        }
-        else{
+        //Save profile against logged in user.
+        User user = (User)req.getSession().getAttribute("user");
+
+        if (user != null) {
+            user.setProfile(profile);
             req.getSession().setAttribute("successMessage","Profile added successfully.");
+            req.getRequestDispatcher("WEB-INF/profile.jsp").forward(req, resp);
+        } else {
+            req.getSession().setAttribute("errorMessage","Unable to add profile.");
             req.getRequestDispatcher("WEB-INF/profile.jsp").forward(req, resp);
         }
     }

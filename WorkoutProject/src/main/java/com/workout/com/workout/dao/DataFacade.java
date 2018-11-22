@@ -10,7 +10,7 @@ public class DataFacade {
     private static List<User> userList = new ArrayList<>();
     private static DataFacade dataFacade = new DataFacade();
 
-    public DataFacade(){
+    private DataFacade(){
         userList.add(new User("ali","aaaaa"));
         userList.add(new User("aa","aaaaa"));
         userList.add(new User("bb","bbbbb"));
@@ -27,25 +27,25 @@ public class DataFacade {
         return  userList;
     }
 
-/*    public static User getUserByName(String userName){
+    public static User getUser(String userName){
         for(User u : userList){
             if(u.getUserName().equals(userName)){
                 return u;
             }
         }
         return null;
-    }*/
-
-    public static boolean addProfile(String userName, Profile profile){
-        if(userName != null) {
-            for (User u : userList) {
-                if (u.getUserName().equals(userName)) {
-                    u.setProfile(profile);
-                    return true;
-                }
-            }
-        }
-        return false;
     }
+
+//    public static boolean addProfile(String userName, Profile profile){
+//        if(userName != null) {
+//            for (User u : userList) {
+//                if (u.getUserName().equals(userName)) {
+//                    u.setProfile(profile);
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
 
 }

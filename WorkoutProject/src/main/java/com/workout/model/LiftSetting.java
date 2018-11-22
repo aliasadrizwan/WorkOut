@@ -9,6 +9,10 @@ public class LiftSetting {
         update(name,set,rep,weight,progress);
     }
 
+    public String getName() {
+        return lift.getName();
+    }
+
     public int getSets() {
         return lift.getSets();
     }
