@@ -21,7 +21,7 @@
         </c:forEach>
         <label></label>
         <div class="m-t-20">
-        <input type="submit" class="btn form-btn width-200" name="submit" id="submit" value="Complete Workout" />
+        <input type="submit" class="btn form-btn width-200" name="submit" id="submit"/>
         </div>
     </form>
 </div>

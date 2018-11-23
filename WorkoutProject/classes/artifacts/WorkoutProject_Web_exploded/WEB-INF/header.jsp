@@ -26,8 +26,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about">ABOUT</a></li>
-                    <li><a href="contact">CONTACT</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
                     <c:choose>
                         <c:when test="${user != null}">
                             <li><a href="workout">WORKOUT</a></li>

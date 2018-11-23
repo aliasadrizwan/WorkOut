@@ -170,7 +170,7 @@ $().ready(function() {
     });
 
     // workout submit form
-    $("#workout").submit(function(e) {
+    $("#submit").click(function(e) {
 
 /*        for(var i = 0; i < $(".lift-name").length; ++i) {
             var name = $("#" + i + " .lift-name").text();
@@ -197,9 +197,7 @@ $().ready(function() {
             });
         }
         var str = JSON.stringify(obj);
-        $.post("/workout",{"workout":str})
-            .done(success)
-            .fail(failure);
+        $.post("/workout",{"workout":str}).done(success).fail(failure);
 
         function success(data) {
             alert(data);
@@ -208,8 +206,6 @@ $().ready(function() {
             alert("failure");
         }
     })
-
-
 });
 
 
